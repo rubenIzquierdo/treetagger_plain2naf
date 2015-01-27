@@ -1,5 +1,16 @@
 #!/bin/bash
 
+##############################################
+# Author:   Ruben Izquierdo Bevia            # 
+#           VU University of Amsterdam       #
+# Mail:     ruben.izquierdobevia@vu.nl       #
+#           rubensanvi@gmail.com             #
+# Webpage:  http://rubenizquierdobevia.com   #
+# Version:  1.0                              #
+# Modified: 27-jan-2015                      #
+##############################################
+
+
 this_folder=$(pwd)
 rm -rf lib 2> /dev/null
 mkdir lib

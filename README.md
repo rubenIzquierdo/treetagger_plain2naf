@@ -1,8 +1,11 @@
 #Treetagger wrapper#
 
-This module implements a wrapper around [TreeTagger](http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/) that allows to work with [KAF](https://github.com/opener-project/kaf/wiki/KAF-structure-overview) or
-[NAF](http://www.newsreader-project.eu/files/2013/01/techreport.pdf) as input/output files. The following languages are allowed by the wrapper: English, Dutch, German, Spanish, Italian and French, although is very
+This module implements a wrapper around [TreeTagger](http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/) that allows to generate[KAF](https://github.com/opener-project/kaf/wiki/KAF-structure-overview) or
+[NAF](http://www.newsreader-project.eu/files/2013/01/techreport.pdf) output files, and accepts UTF-8 plain text as input. The following languages are allowed by the wrapper: English, Dutch, German, Spanish, Italian and French, although is very
 easy to add new languages.
+* Input: UTF-8 plain text
+* Output: KAF/NAF files
+* Langs: English, Dutch, German, Spanish, Italian and French
 
 ##Installation##
 
@@ -18,8 +21,8 @@ first the KafNafParserPy library and then the TreeTagger and all the models.
 from the command line to get this treetagger-wrapper installed 
 ```shell
 cd your_local_path
-git clone https://github.com/rubenIzquierdo/treetagger_kaf_naf
-cd treetagger_kaf_naf
+git clone https://github.com/rubenIzquierdo/treetagger_plain2naf
+cd treetagger_plain2naf$
 bash install_dependencies.sh
 ````
 
@@ -38,15 +41,34 @@ You can do this using two different ways:
 
 ##Usage##
 
-The requirement as input is a valid KAF/NAF file which has been processed by one tokeniser and it contains a correct text layer.
-Once installed you can try one of the example files on the `examples` subfolder, by running:
+The requirements are:
+* Input: UTF-8 plain text
+* Output: KAF/NAF files
+* Langs: English, Dutch, German, Spanish, Italian and French
+
+Example:
+
 ```shell
-$ cat examples/input.en.kaf | python treetagger.py > my_output.en.kaf
+$ echo 'This is a very simple text in English' | python treetagger_plain2naf.py -l en > my_output.en.naf
 ```
 
-This will process the file `examples/input.en.kaf` and the result will be storef in the file `my_output.en.kaf`, which should be the same
-(with exception of the time stamps) than the file `examples/output.en.kaf`. You will find example files for the rest of languages in the same
-`examples` folder.
+This will process the given text considering that is English (-l en) and the result will be storef in the file `my_output.en.naf`. You can find the whole
+description of the parameters by calling to the program with the parameter `-h`:
+```shell
+python treetagger_plain2naf.py -h
+usage: treetagger_plain2naf.py [-h] [-v] -l {en,nl,it,es,de,fr} [-kaf]
+
+Applies TreeTagger parser for a given plain input text and generates KAF/NAF
+with tokens and terms
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --version         show program's version number and exit
+  -l {en,nl,it,es,de,fr}
+                        Language of the input text
+  -kaf                  Generate KAF output (default NAF)
+
+```
 
 ##Contact##
 
