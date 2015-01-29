@@ -127,7 +127,7 @@ if __name__=='__main__':
     unicode_input_text = input_text.decode('utf-8','ignore')
     tt_proc = subprocess.Popen(treetagger_cmd,stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr = subprocess.PIPE)
 
-    output, error = tt_proc.communicate(unicode_input_text)
+    output, error = tt_proc.communicate(unicode_input_text.encode('utf-8'))
     
     
     if args.generate_kaf:
