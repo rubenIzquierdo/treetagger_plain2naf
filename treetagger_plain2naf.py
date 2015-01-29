@@ -143,7 +143,7 @@ if __name__=='__main__':
         if len(fields) != 3:
             print>>sys.stderr,'Problem parsing:', unicode_line.encode('utf-8'),' . Line skipped'
             continue
-        token,pos,lemma = line.strip().split()
+        token,pos,lemma = fields
         if lemma=='<unknown>': 
                 lemma = token.lower()
                 pos+=' unknown_lemma'
