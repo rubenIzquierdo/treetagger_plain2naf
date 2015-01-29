@@ -165,7 +165,7 @@ if __name__=='__main__':
         try:
             new_token.set_text(token)
         except Exception as e:
-            print>>sys.stderr,'Error adding token',e.encode('utf-8'),' SKIPPED'
+            print>>sys.stderr,'Error adding token',token.encode('utf-8'),' SKIPPED'
             print>>sys.stderr,'==>',str(e)
             continue
         
