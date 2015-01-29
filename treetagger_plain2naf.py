@@ -161,7 +161,13 @@ if __name__=='__main__':
         new_token.set_length(str(len(token)))
         new_token.set_offset(str(this_offset))
         new_token.set_sent(str(num_sent+1))
-        new_token.set_text(token)
+        #There could be weird characters such as \n or so...
+        try:
+            new_token.set_text(token)
+        except Exception as e:
+            print>>sys.stderr,'Error adding token',e.encode('utf-8'),' SKIPPED'
+            print>>sys.stderr,'==>',str(e)
+            continue
         
         #term
         new_term = Cterm(type=my_type)
