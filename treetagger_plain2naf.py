@@ -197,6 +197,7 @@ if __name__=='__main__':
     lp_term.set_version(__version__)
     lp_term.set_timestamp()
     knaf_obj.add_linguistic_processor('term', lp_term)
+    knaf_obj.root.set('{http://www.w3.org/XML/1998/namespace}lang', args.lang)
     
     knaf_obj.dump(sys.stdout)
  
