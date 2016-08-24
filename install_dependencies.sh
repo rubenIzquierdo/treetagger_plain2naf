@@ -34,7 +34,7 @@ url_treetagger=""
 if [ "$(uname)" == "Darwin" ]; then
   url_treetagger=http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/tree-tagger-MacOSX-3.2-intel.tar.gz 
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-  url_treetagger=http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/tree-tagger-linux-3.2.tar.gz
+  url_treetagger=http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/tree-tagger-linux-3.2-old.tar.gz
 else
   echo "`uname` platform not supported by this script. Install TreeTagger manually"
 fi
